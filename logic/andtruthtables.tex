@@ -1,0 +1,41 @@
+\documentclass{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % omit if using lualatex/xelatex
+\usepackage{booktabs}
+
+\begin{document}
+
+\section*{Truth tables: AND and NAND}
+
+\begin{table}[h]
+\centering
+\caption{Truth table for AND}
+\begin{tabular}{cc c}
+\toprule
+$A$ & $B$ & $A \land B$ \\
+\midrule
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+1 & 1 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Truth table for NAND}
+\begin{tabular}{cc c}
+\toprule
+$A$ & $B$ & $\neg(A \land B)$ \\
+\midrule
+0 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+1 & 1 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

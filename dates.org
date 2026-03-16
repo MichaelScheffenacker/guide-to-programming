@@ -1,0 +1,20 @@
+* Time
+
+** Date Format
+
+[[https://en.wikipedia.org/wiki/Date_format_by_country]]
+
+*** Inconsistent Formats
+**** ~DD.MM.YYYY~
+**** ~MM/DD/YYYY~
+
+The most significant digit of an Arabic number is on the left, therefore the most significant part of the date hast to be on the left (vice versa for “least” and “right”).  This allows [[https://en.wikipedia.org/wiki/Lexicographical_order][lexicographical sorting]] until the end of year 9999.  There are almost no countries where the dash (~-~) with any other ordering of the date parts. 
+
+** Time Format
+
+[[https://en.wikipedia.org/wiki/12-hour_clock]]
+
+The English time format, which calls midnight 12 a.m. and noon 12 p.m, is problematic.  It leads to a discontinuation at 1 a.m. and 1 p.m., which differs from the discontinuation of “a.m.” and “p.m.” which happens respectively one hour before the 12-1-discontinuation.  This problem occurs due to a confusion of the nature of a point in time: At any discontinuation point there happens to be a shared time for both references (the time reference before and after the continuation).  So at midnight it is 24:00 of the former day and simultaneously 00:00 of the following day.  The two different days do not share a second or span of time at all, but they share a singular point in time.  By convention we never say 24:00 and always 00:00 due to [[https://en.wikipedia.org/wiki/Positional_notation][positional]] notation. But therefore it would have to be 12 a.m. and 0 p.m. and never 12:01 a.m. but always 0:01 p.m.
+
+Because of this behavior, the only consistent time format is the 24 hour format. By avoiding a suffix the 24 hour format allows lexical sorting.
+

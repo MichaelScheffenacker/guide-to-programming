@@ -1,0 +1,136 @@
+\documentclass[a4paper,10pt]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,textcomp}
+
+\usepackage{scrhack}
+\usepackage{listings}
+% \lstdefinestyle{customc}{
+%   basicstyle=\footnotesize\ttfamily,
+%   }
+
+\title{A Guide to Programming}
+\author{Michael Scheffenacker}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Getting Started}
+
+Starting to write \emph{programs} raises a few questions: what \emph{language} to use? what \emph{paradigm} to focus on? what is a reliable setup to get started?
+
+If you want to try \emph{programming} for the first time, you might not want to put a lot of effort and time into setting up a \emph{development environment}, which might take hours to days to set up, depending on your experience.
+In this case the easiest way to get started is a modern \emph{browser} with it's integrated programming language \texttt{JavaScript}.
+
+\section{Programming the Browser}
+
+The \emph{programming language} of each modern browser is \texttt{JavaScript}.
+And you should use the latest version of your browser in any case, because old browser versions are a serious security risk.
+All browsers do have a \emph{console} for \texttt{JavaScript}.
+
+\begin{quotation}
+ This text will not describe how to open the console;
+ the method to open it may vary for each browser and even for each version.
+ It is also easy to find online.
+ As general statement, this text will not describe all steps to solve a task.
+ The focus lays on referencing well written guidelines and tutorials, providing information hard to find elsewhere and being a glue to create a holistic picture of the topic.
+ The autor trusts in the intelligence of the reader to solve any problem by itself;
+ and in improving by doing so.
+\end{quotation}
+
+When you have managed to open the console, there will be an input \emph{prompt}, which will allow you to type something in. There might also some other output in the console present, probably in red od yellow colors.
+The reason for that is, the console relates to the currently open tab and shows information about it.
+In rare cases it might even interact with the code you will try to type in.
+To get a completely clean console, you will have to open an empty tab;
+to do so, open a new tab and type into the \emph{address bar}:
+
+\lstset{basicstyle=\ttfamily}
+\begin{lstlisting}
+ about:blank
+\end{lstlisting}
+
+It is important to type every \emph{character} in this \emph{string} correctly, this includes \emph{blank spaces}:
+there are no blank spaces in this string, and none can be added.
+This is a general rule in programming, a single error, wich includes any misspelling like mixing up 0 with O or \texttt{.} with \texttt{,} or putting a space at the wrong spot will break the entire program.
+Even the few freedoms the definition of the programming language allows, are taken away by \emph{style guides}, which will define the place of every single symbol, that is going to be typed in the program.
+For this reason it is a good advice to start very slowly, making sure every character and every symbol is on the right spot, and being eager to prevent as much errors as possible from the very beginning.
+It is an difficult task, to write error free programs as soon as they get to a interesting complexity.
+There are multiple levels to master in programming:
+the most basic one is the getting the \emph{syntax} and \emph{semantics} [https://en.wikibooks.org/wiki/Introduction\_to\_Programming\_Languages/Grammars] of a program right;
+then you have to make sure to meet the programs goals.
+On top of that you have to think about readability and clearness of the \emph{code} [[why is ``code'' coming so late? explain difference between code and program?]], as yourself and others might have to read, understand and alter the program at a later point of time.
+This a difficult task and requires a insight into the thinking and work habits of programmers, managers and customers.
+But the hardest part in programming is getting the goals right.
+Douglas Crockford said in his book \emph{JavaScript: the good parts} (p.\,99):
+\begin{quotation}
+ We see a lot of feature-driven product design in which the cost of features is not properly accounted.
+ Features can have a negative value to consumers because they make the products more difficult to understand and use.
+ We are finding that people like products that just work.
+ It turns out that design that just work are much harder to produce than designs that assemble long lists of features.
+\end{quotation}
+
+But at the current point of time, we do not have to think about features too much, because the core features of the language will lead us to examples automatically:
+A first example of programming are basic calculations, type the following \emph{commands} into the console and hit the enter key afterwards.
+\begin{lstlisting}
+ 2 + 3;
+\end{lstlisting}
+The result will be shown in the next line.
+In this case leaving away the blank spaces before and after the \texttt{+} symbol will lead to the same result.
+But the style guide forces us to put them there; and therefore it would be a bad idea to leave them away.
+The language does not force the \texttt{;} symbol to be at the end of the the line, but leaving it away can lead to obscure errors in \texttt{JavaScript}, therefore it is key to end every \emph{expression} in \texttt{JavaScript} with the \texttt{;} symbol [[Is it correct to say it in that way?]].
+There are expressions which use multiple lines but most of them live on a single line, so not every line will end with a semicolon but most of them will.
+It is nice to have a console at hand, which can do basic calculations, even parentheses do work:
+\begin{lstlisting}
+ 2 * (-5 + 2) / 2;
+\end{lstlisting}
+Typing a predefined example and making it work is an first satisfying step.
+But pretty soon it will be forgotten again.
+A good way to get a more profound experience, is to take the gained knowledge and try out new combinations.
+Driving it to a point, where the attempts break the system, and figuring out possible reasons for the breakage, is even better.
+If you did do the former already -- even before reading this lines---the probability for you to become a programmer is high.
+If you did the latter, your chances are good to become a good programmer.
+
+\section{Computer Hardware}
+
+If you do not own a computer or are not very experienced with it, get one and start to get used to it.
+Do not worry about playing around with it.
+If there is no important data on it, nothing important can get lost (and if you have important data on it, it should be double \emph{backed up} anyways).
+And as long as it does not get physically broken, there is almost nothing you can do, which breaks the computer permanently.
+For programming the system requirements are low, a second hand \emph{laptop} for €\,200 to €\,300 will be sufficient.
+Do not worry about the usual characteristics like processor \emph{clock rate}, number of \emph{cores}, size of \emph{RAM} or \emph{drive} space.
+Useful upgrades for programming are a good \emph{screen} and a quality \emph{keyboard}.
+Those two devices handle the majority of your interaction with the computer.
+If you do serious work, you will spend many hours daily looking at the screen and your fingers will push the keys on your keyboard million of times.
+
+\subsection{Computer Screen}
+Therefore a clear and steady image is an important quality criteria for a screen used for programming in contrast to color and reaction time, which might be relevant for image editing and gaming, but not for programming.
+A second important criteria for a programming screen is the resulution.
+As a programmer you will have an \emph{editor} and at least one window which shows the result of your program and \emph{debugging} information or an \emph{IDE}, which combines all of the former tasks, open at all time.
+On top of that beginners will have an browser window open.
+As soon as you have learned how to use it, the \emph{interweb} will answer the majority of your questions quickly.
+Expectably one question will lead to another, therefore the browser will usually have many \emph{tabs} open at the same time.
+This is not only true for beginners, but also for experienced programmers.
+Modern programmers are required to update themselves on upcomming technologies, new \emph{frameworks} and possibly emerging \emph{programming languages} multiple times each year, which leads to a constant learning
+process, and being the browser the best friend of a programmer.
+As a result a lot of information will be presented simultaneously, which multiple screens or such with high resolution desireable.
+
+\subsection{Keyboard}
+There is a variety of keyboards with different characteristics. Laptop keyboards do have much shorter travel distance for a keystroke than solid desktop keyboards.
+Therefore a good tactile feedback is most important for laptop keyboards.
+Heavy typists might even want a keyboard with mechanical switches.
+If you are familiar with touch typing you might already have a preferred tactile feedback, and you should probably stick to it.
+If you are not familiar with touch typing, it is advisable to start with training right away;
+it will impove your productivity in short time and allow you to focus on the task.
+
+\subsection{High Hardware Requirements}
+For specialised cases in programming, despite what was sayd above, programming requires hardware components with high performance.
+But such requirements are very specific for each field and the specific tasks in such a field.
+In some cases a obscene amount of RAM might be absolutely neccessary while the performance of other components is secondary, and in other cases a program can run only on a \emph{super computer}.
+While it will hardly be understandable for a beginner, such requirements become clear, when working on such a topic.
+Therefore the evaluation of special hardware requirement is left for the reader.
+
+\section{Computer Software}
+
+>> install Gentoo
+
+\end{document}

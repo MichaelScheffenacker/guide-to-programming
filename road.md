@@ -1,0 +1,5 @@
+# The Longest Yard
+If this [+] opens up a world for you, where you can do anything with this [+] rules, I can say with certainty that you have the prerequisite to be a programmer. And if you chose to go that path, you will face two questions: where to start and where to end.
+[…]
+Becoming a programmer is a path with no end.
+... It is not a marathon, because it is not a run. It is a walk without a final goal. You can stop at any time, pause for any time span, continue at any time. It is a road with many branches and a multitude of things to find out. In that sense it is similar to exploring the world. You can go to a City and settle there for the rest of your life, you can travel, you can live a different places at different times, you can become a nomad. And anywhere you are, you will find exciting small alleys, dead ends and dangerous obstacles. It is a new world to explore in a comprehensive sense. 
