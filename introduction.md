@@ -85,3 +85,59 @@ chair > {
 }
 ```
 
+There is no risk of mixing up for example the currency for `house` which is `2` with the price for `chair` which is also `2` because the position of each value has an implicit mapping of 'what it means' to it. Currently we are marking each position by an identifier like `value` or `unit`, or `weight`. But all of this information (at least in the usual and efficient way) is implicitly kept in the position, the content of the memory would be looking something closer to this:
+
+```
+kg > 000
+Dollar > 001
+Schilling > 002
+boat  > [[00200, 000], [00050, 001]]
+house > [[01000, 000], [00150, 002]]
+chair > [[00005, 000], [00002, 001]]
+```
+
+Now every value needs leading zeros, because -- remember -- the position of a value determines the type of the value, this is even the only way to determine where a value begins and ends. In this example all `value`s are 16-bit integers and all other numbers are 8-bit integers, so in binary it looks as follows:
+
+```
+kg > 00000000
+Dollar > 00000001
+Schilling > 00000010
+boat  > [[0000000011001000, 00000000], [0000000000110010, 00000001]]
+house > [[0000001111101000, 00000000], [0000000010010110, 00000010]]
+chair > [[0000000000000101, 00000000], [0000000000000010, 00000010]]
+```
+
+All of the names of the unit enum are conceptual mappings, so there names do not actually exist in memory, and since they anyways only count the natural numbers they can simply be left away, the only information about them in memory is implicitly encoded in the position and it says that all those 8-bit integers after the 16-bit integers are a enumeration of something, the actual meaning of each value, we have to keep in mind.
+
+```
+boat  > [[0000000011001000, 00000000], [0000000000110010, 00000001]]
+house > [[0000001111101000, 00000000], [0000000010010110, 00000010]]
+chair > [[0000000000000101, 00000000], [0000000000000010, 00000010]]
+```
+
+The same is true for the names of each data structure, we have to keep in mind that they are `boat`, `house` and `chair` in that order. Also the brackets and commas and spaces do not exist in memory, they are just there to make it easier for us humans to read the data. Therefore what is actually somewhere in the data looks as follows:
+
+```
+000000001100100000000000000000000011001000000001000000111110100000000000000000001001011000000010000000000000010100000000000000000000001000000010
+```
+
+This is the most basic view of data in memory. We conceptually know now, that we can extract the weight of our `house` and its price including the currency out of it, we can even make the computer add up the weight of the `house` and the `chair` and put the result somewhere else in memory, maybe just at the end of this long sequence of zeros and ones.
+
+In practice there are cases where we want to put words and even longer text into memory, this works by putting the binary mappings of the letters, as discussed at the beginning, in sequence into memory. To put the word 'boat' into memory, we take the binary mapping of each character
+
+```
+'b' = 01100010
+'o' = 01101111
+'a' = 01100001
+'t' = 01110100
+```
+
+and simply put them in sequence in memory:
+
+```
+01100010011011110110000101110100
+```
+
+A sequence of characters is called a *string*, a sequence of values, including data structures, of the same type are called an *array*. This string `"boat"` is no different than the sequence of the numbers `98, 111, 97, 116`; we again only know conceptually that this is a sequence of characters and not a sequence of four 8-bit integers or a 32-bit integer or something else. (Note, that a single character is delimited with single quotes like `'b'`, a string is delimited with double quotes like `"boat"` and a conceptual name like `boat` does not have any delimiter, all of this identifiers are set in monospace because they live in the virtual world of the computer; irl words like 'boat' are set in normal font and follow the standard typographical conventions.) With strings we get into a fundamental problem, they might initially be of undefined length, so we might not really be able to tell beforehand how long a string is. In the example with the data structures this was relatively easy, we could predict with some confidence how big a number could get and therefore choose the correct bit-length of the integers. But for strings of initially undefined length we need to find clever ways to handle the issue. We could predefine a maximum length for strings, and force them by the program to not to be longer; the easiest way to do that would be to just throw everything away, that exceeds the predefined length. Or we could reserve a larger space in memory for strings and put them in, one after each other with a separator between strings or terminator after each string. The C programming language famously uses the *null character*, represented by a byte of eight zeros, this character cannot be printed or shown on screen, to terminate its strings. Alternatively the length of a string can be stored in a data structure; but still have to think about reserving space for those strings and about what is going to happen, if the required space exceeds the reserved one. Another step is thinking about strings that change over time in size, if the string gets longer, it will write over the data adjacent to it. This are all things programmers have to think about.
+
+The only actual low-level help the computer gives us to m
